@@ -1,4 +1,3 @@
-
 /* variaveis modo claro */
 :root {
   --background: #faf9f8;
@@ -23,7 +22,7 @@ html {
 
 body {
   margin: 0;
-  font-family: 'Manrope', sans-serif;
+  font-family: "Manrope", sans-serif;
   color: var(--text);
   background: var(--background);
 }
@@ -70,8 +69,11 @@ textarea {
 }
 
 .page-shell {
-  padding-top: 3.0rem !important;
-  background-image: radial-gradient(rgba(212, 196, 182, 0.75) 1px, transparent 1px);
+  padding-top: 3rem !important;
+  background-image: radial-gradient(
+    rgba(212, 196, 182, 0.75) 1px,
+    transparent 1px
+  );
   background-size: 24px 24px;
 }
 
@@ -86,7 +88,7 @@ textarea {
 
 .section-label {
   margin: 0 0 1rem;
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: "Space Grotesk", sans-serif;
   text-transform: uppercase;
   letter-spacing: 0.18em;
   font-size: 0.75rem;
@@ -95,7 +97,7 @@ textarea {
 
 .section-title {
   margin: 0;
-  font-family: 'Epilogue', sans-serif;
+  font-family: "Epilogue", sans-serif;
   font-size: clamp(2.2rem, 4vw, 3.6rem);
   line-height: 1;
   letter-spacing: -0.04em;
@@ -133,7 +135,9 @@ textarea {
 .button {
   border: 0;
   cursor: pointer;
-  transition: transform 0.2s ease, opacity 0.2s ease;
+  transition:
+    transform 0.2s ease,
+    opacity 0.2s ease;
 }
 
 .button:hover {
@@ -147,7 +151,7 @@ textarea {
   border-radius: 0.5rem;
   text-transform: uppercase;
   letter-spacing: 0.12em;
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: "Space Grotesk", sans-serif;
   font-size: 0.8rem;
   box-shadow: 0 7px 8px #7b351979;
   border: 1px solid var(--primary);
@@ -165,7 +169,7 @@ textarea {
   border-bottom: 2px solid rgba(128, 85, 37, 0.18);
   text-transform: uppercase;
   letter-spacing: 0.12em;
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: "Space Grotesk", sans-serif;
   font-size: 0.8rem;
   color: var(--secondary);
 }
@@ -190,7 +194,7 @@ textarea {
 
 .brand,
 .footer__brand {
-  font-family: 'Epilogue', sans-serif;
+  font-family: "Epilogue", sans-serif;
   font-size: 1.3rem;
   font-weight: 800;
   letter-spacing: -0.04em;
@@ -204,7 +208,7 @@ textarea {
 
 .navbar__link,
 .navbar__mobile-link {
-  font-family: 'Epilogue', sans-serif;
+  font-family: "Epilogue", sans-serif;
   font-size: 0.86rem;
   font-weight: 700;
   text-transform: uppercase;
@@ -257,7 +261,7 @@ textarea {
 
 .hero__title {
   margin: 0 0 1.5rem;
-  font-family: 'Epilogue', sans-serif;
+  font-family: "Epilogue", sans-serif;
   font-size: clamp(2.8rem, 9vw, 4.5rem);
   line-height: 0.98;
   letter-spacing: -0.05em;
@@ -317,59 +321,74 @@ textarea {
   letter-spacing: 0.15em;
   font-size: 0.65rem;
   color: var(--secondary);
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: "Space Grotesk", sans-serif;
 }
 
 .hero__floating-card h3 {
   margin: 0;
-  font-family: 'Epilogue', sans-serif;
+  font-family: "Epilogue", sans-serif;
   font-size: 1.15rem;
 }
 
 /* Projects */
 .projects__grid {
-  display: grid;
-  grid-template-columns: 1fr;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
   gap: 2rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding-bottom: 1.5rem;
+}
+
+.projects__grid::-webkit-scrollbar {
+  height: 12px;
+}
+.projects__grid::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
 }
 
 .project-card {
   display: flex;
-  flex-direction: column;
-  gap: 1rem;
+  flex-direction: row;
+  border: 1px solid var(--secondary);
+  border-radius: 1rem;
+  overflow: hidden;
+  scroll-snap-align: start;
+  flex-shrink: 0;
+  height: 16rem;
 }
 
 .project-card__image-wrap {
-  overflow: hidden;
-  background: var(--surface-low);
-  border-radius: 1rem;
+  flex: 0 0 50%;
+  height: 100%;
 }
 
 .project-card__image {
   width: 100%;
-  aspect-ratio: 4 / 5;
+  height: 100%;
   object-fit: cover;
   transition: transform 0.5s ease;
+}
+
+.project-card__content {
+  background: var(--primary);
+  flex: 0 0 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1.25rem;
+  height: 100%;
 }
 
 .project-card:hover .project-card__image {
   transform: scale(1.04);
 }
 
-.project-card__content {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  background-color: #7b3519e0;
-  border: 1px solid var(--secondary);
-  gap: 1rem;
-  padding: 1.25rem;
-  border-radius: 0.75rem;
-}
-
 .project-card__eyebrow {
   margin: 0 0 0.4rem;
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: "Space Grotesk", sans-serif;
   text-transform: uppercase;
   letter-spacing: 0.12em;
   font-size: 0.68rem;
@@ -378,15 +397,21 @@ textarea {
 
 .project-card__title {
   margin: 0;
-  font-family: 'Epilogue', sans-serif;
+  font-family: "Epilogue", sans-serif;
   font-size: 1.3rem;
   color: var(--background);
 }
 
 .project-card__year {
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: "Space Grotesk", sans-serif;
   font-size: 0.75rem;
   color: var(--surface-low);
+}
+
+@media (max-width: 768px) {
+  .project-card {
+    flex: 0 0 85%;
+  }
 }
 
 /* Services */
@@ -417,7 +442,7 @@ textarea {
 
 .service-card__icon {
   margin-bottom: 1.25rem;
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: "Space Grotesk", sans-serif;
   font-size: 2rem;
   color: inherit;
   opacity: 0.85;
@@ -425,13 +450,13 @@ textarea {
 
 .service-card__title {
   margin: 0 0 0.75rem;
-  font-family: 'Epilogue', sans-serif;
+  font-family: "Epilogue", sans-serif;
   font-size: 1.45rem;
 }
 
 .service-card__subtitle {
   margin: 0 0 12px;
-  font-family: 'Epilogue', sans-serif;
+  font-family: "Epilogue", sans-serif;
   font-size: 0.95rem;
   font-weight: 500;
   opacity: 0.8;
@@ -469,7 +494,7 @@ textarea {
 
 .contact__title {
   margin: 0 0 1rem;
-  font-family: 'Epilogue', sans-serif;
+  font-family: "Epilogue", sans-serif;
   font-size: clamp(2.2rem, 6vw, 3.6rem);
   line-height: 0.98;
 }
@@ -487,12 +512,12 @@ textarea {
   letter-spacing: 0.15em;
   font-size: 0.7rem;
   color: rgba(255, 181, 154, 0.95);
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: "Space Grotesk", sans-serif;
 }
 
 .contact__email {
   margin: 0;
-  font-family: 'Epilogue', sans-serif;
+  font-family: "Epilogue", sans-serif;
   font-size: 1.2rem;
 }
 
@@ -509,7 +534,7 @@ textarea {
   text-transform: uppercase;
   letter-spacing: 0.12em;
   font-size: 0.78rem;
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: "Space Grotesk", sans-serif;
 }
 
 .contact__form-wrap {
@@ -539,7 +564,7 @@ textarea {
   letter-spacing: 0.12em;
   font-size: 0.68rem;
   color: #827569;
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: "Space Grotesk", sans-serif;
 }
 
 .contact__form input,
@@ -725,7 +750,10 @@ body.dark-mode {
 
 /* Ajustes de elementos específicos no Modo Escuro */
 body.dark-mode .page-shell {
-  background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-image: radial-gradient(
+    rgba(255, 255, 255, 0.05) 1px,
+    transparent 1px
+  );
 }
 
 body.dark-mode .navbar {
@@ -741,7 +769,7 @@ body.dark-mode .footer__content {
   border-top-color: var(--outline);
 }
 
-body.dark-mode .footer__link, 
+body.dark-mode .footer__link,
 body.dark-mode .footer__copy {
   color: var(--text-muted);
 }
@@ -750,7 +778,7 @@ body.dark-mode .contact__form-wrap {
   background: rgba(30, 30, 30, 0.95);
 }
 
-body.dark-mode .contact__form input, 
+body.dark-mode .contact__form input,
 body.dark-mode .contact__form textarea {
   color: white;
   border-bottom-color: var(--outline);
