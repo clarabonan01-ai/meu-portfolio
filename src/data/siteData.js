@@ -63,8 +63,6 @@ export const services = [
 ];
 
 export const footerLinks = [
-  { label: 'LinkedIn', href: '#' },
-  { label: 'GitHub', href: '#' },
-  { label: 'Read.cv', href: '#' },
-  { label: 'Dribbble', href: '#' },
+  { label: 'LinkedIn', href: 'https://www.linkedin.com/in/clara-bonan-1241b6415/' },
+  { label: 'GitHub', href: 'https://github.com/clarabonan01-ai' },
 ];
