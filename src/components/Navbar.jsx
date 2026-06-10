@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { navLinks } from '../data/siteData';
+import React, { useEffect, useState } from "react";
+import { navLinks } from "../data/siteData";
 
 export default function Navbar({ isDarkMode, setIsDarkMode }) {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -13,16 +13,21 @@ export default function Navbar({ isDarkMode, setIsDarkMode }) {
     setMenuOpen(false);
   }
 
-  // Função para alternar o tema
+  // Função para alternar o tema guardando a escolha no navegador
   const toggleTheme = () => {
-    setIsDarkMode(!isDarkMode);
+    setIsDarkMode((prevMode) => {
+      const nextMode = !prevMode;
+      // Salva 'dark' ou 'light' de acordo com o próximo estado
+      localStorage.setItem("theme", nextMode ? "dark" : "light");
+      return nextMode;
+    });
   };
 
   useEffect(() => {
     function handleScroll() {
       const sections = navLinks
         .map((link) => {
-          const sectionId = link.href.replace('#', '');
+          const sectionId = link.href.replace("#", "");
           return document.getElementById(sectionId);
         })
         .filter(Boolean);
@@ -38,7 +43,7 @@ export default function Navbar({ isDarkMode, setIsDarkMode }) {
           scrollPosition < sectionTop + sectionHeight
         ) {
           const matchedLink = navLinks.find(
-            (link) => link.href === `#${section.id}`
+            (link) => link.href === `#${section.id}`,
           );
 
           if (matchedLink && matchedLink.label !== activeLink) {
@@ -48,11 +53,11 @@ export default function Navbar({ isDarkMode, setIsDarkMode }) {
       }
     }
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
     handleScroll();
 
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener("scroll", handleScroll);
     };
   }, [activeLink]);
 
@@ -67,8 +72,8 @@ export default function Navbar({ isDarkMode, setIsDarkMode }) {
               key={link.label}
               className={
                 activeLink === link.label
-                  ? 'navbar__link navbar__link--active'
-                  : 'navbar__link'
+                  ? "navbar__link navbar__link--active"
+                  : "navbar__link"
               }
               href={link.href}
             >
@@ -77,14 +82,14 @@ export default function Navbar({ isDarkMode, setIsDarkMode }) {
           ))}
         </div>
 
-        <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
-          <button 
-            onClick={toggleTheme} 
+        <div style={{ display: "flex", gap: "1rem", alignItems: "center" }}>
+          <button
+            onClick={toggleTheme}
             className="theme-toggle"
             type="button"
             aria-label="Trocar tema"
           >
-            {isDarkMode ? '🌙' : '☀️'}
+            {isDarkMode ? "🌙" : "☀️"}
           </button>
 
           <button
@@ -95,10 +100,13 @@ export default function Navbar({ isDarkMode, setIsDarkMode }) {
             aria-controls="mobile-navigation"
             type="button"
           >
-            {menuOpen ? '✕' : '☰'}
+            {menuOpen ? "✕" : "☰"}
           </button>
 
-          <button className="button button--primary button--small" type="button">
+          <button
+            className="button button--primary button--small"
+            type="button"
+          >
             Entre em Contato
           </button>
         </div>
@@ -111,8 +119,8 @@ export default function Navbar({ isDarkMode, setIsDarkMode }) {
               key={link.label}
               className={
                 activeLink === link.label
-                  ? 'navbar__mobile-link navbar__mobile-link--active'
-                  : 'navbar__mobile-link'
+                  ? "navbar__mobile-link navbar__mobile-link--active"
+                  : "navbar__mobile-link"
               }
               href={link.href}
               onClick={closeMenu}
@@ -121,7 +129,10 @@ export default function Navbar({ isDarkMode, setIsDarkMode }) {
             </a>
           ))}
 
-          <button className="button button--primary navbar__mobile-button" type="button">
+          <button
+            className="button button--primary navbar__mobile-button"
+            type="button"
+          >
             Entre em Contato
           </button>
         </div>
