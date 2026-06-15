@@ -89,7 +89,6 @@ export default function Navbar({ isDarkMode, setIsDarkMode }) {
             type="button"
             aria-label="Trocar tema"
           >
-            {isDarkMode ? "🌙" : "☀️"}
           </button>
 
           <button

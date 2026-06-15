@@ -5,7 +5,7 @@ export default function Footer() {
   return (
     <footer className="footer">
       <div className="container footer__content">
-        <div className="footer__brand">The Tactile Archive</div>
+        <div className="footer__brand">Clara Bonan Vianna</div>
 
         <div className="footer__meta">
           <div className="footer__links">
@@ -15,7 +15,7 @@ export default function Footer() {
               </a>
             ))}
           </div>
-          <p className="footer__copy">© {new Date().getFullYear()} The Tactile Archive. Built with Precision.</p>
+          <p className="footer__copy">© {new Date().getFullYear()} Clara Bonan Vianna.</p>
         </div>
       </div>
     </footer>
